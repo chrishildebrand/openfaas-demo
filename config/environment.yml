@@ -1,0 +1,3 @@
+environment:
+  rabbitmq_host: rabbitmq.default
+  rabbitmq_port: 5672

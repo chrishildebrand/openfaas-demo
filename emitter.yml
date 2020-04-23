@@ -1,0 +1,24 @@
+version: 1.0
+provider:
+  name: openfaas
+configuration:
+  copy:
+    - ./common
+functions:
+  emitter:
+    lang: python3
+    handler: ./functions/emitter
+    image: chrishildebrand/emitter:latest
+    annotations:
+      topic: cron-function
+      schedule: "*/1 * * * *"
+    secrets:
+      - rabbitmqcreds
+    environment_file:
+      - ./config/environment.yml
+    environment:
+      combine_output: false
+      rmq_write_queue:
+        dates
+      rmq_exchange:
+        OpenFaasEx

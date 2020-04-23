@@ -1,0 +1,16 @@
+version: 1.0
+provider:
+  name: openfaas
+configuration:
+  copy:
+    - ./common
+functions:
+  decoder:
+    lang: python3
+    handler: ./functions/decoder
+    image: chrishildebrand/decoder:latest
+    annotations:
+      topic: dates_batched
+    environment:
+      combine_output: false
+

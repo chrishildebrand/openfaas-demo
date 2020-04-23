@@ -1,0 +1,24 @@
+version: 1.0
+provider:
+  name: openfaas
+configuration:
+  copy:
+    - ./common
+functions:
+  batcher:
+    lang: dockerfile
+    handler: ./functions/batcher
+    image: chrishildebrand/batcher:latest
+    secrets:
+      - rabbitmqcreds
+    environment:
+      rmq_read_queue:
+        OpenFaaS_dates
+      rmq_write_queue:
+        dates_batched
+      rmq_exchange:
+        OpenFaasEx
+      batch_size: 100
+      batch_seconds: 150
+    environment_file:
+      - ./config/environment.yml
