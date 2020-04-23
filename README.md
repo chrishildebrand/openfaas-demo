@@ -8,7 +8,7 @@ This project provides a set of three OpenFaaS functions that demonstrate three m
 
 - __decoder:__ A function that is triggered by RabbitMQ messages (using the 3rd party RabbitMQ connector) and writes output to stderr.
 
-### emitter
+## emitter
 
 The emitter function produces a JSON message containing the current datetime and submits it to a RabbitMQ server. It is set up to run every minute.
 
@@ -23,7 +23,7 @@ The above value decodes to:
 "The current time is: 2020-04-23T04:02:41.948285"
 ``` 
 
-### batcher
+## batcher
 
 The batcher function is actually a microservice. This service continuously reads messages from a RabbitMQ queue, batching them together. It writes a batch of messages to a new queue (as a single RabbitMQ message) once the batch reaches a predefined size or a predefined time threshold has elapsed.
 
@@ -43,7 +43,7 @@ HTTP requests to the batcher function return a status update.
 Processed 34 messages in 8 batches since 2020-04-23 03:51:02.674371.
 ```
 
-### decoder
+## decoder
 
 The decoder function takes input of the form produced by the batcher, and decodes and logs each line. It is designed to be configured for use with the OpenFaaS RabbitMQ connector, so that it is triggered for each message produced by the batcher.
 
