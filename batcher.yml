@@ -8,7 +8,7 @@ functions:
   batcher:
     lang: dockerfile
     handler: ./functions/batcher
-    image: chrishildebrand/batcher:latest
+    image: ${DOCKER_USER}/batcher:latest
     secrets:
       - rabbitmqcreds
     environment:

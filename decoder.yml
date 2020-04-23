@@ -8,7 +8,7 @@ functions:
   decoder:
     lang: python3
     handler: ./functions/decoder
-    image: chrishildebrand/decoder:latest
+    image: ${DOCKER_USER}/decoder:latest
     annotations:
       topic: dates_batched
     environment:

@@ -8,7 +8,7 @@ functions:
   emitter:
     lang: python3
     handler: ./functions/emitter
-    image: chrishildebrand/emitter:latest
+    image: ${DOCKER_USER}/emitter:latest
     annotations:
       topic: cron-function
       schedule: "*/1 * * * *"
