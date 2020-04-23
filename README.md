@@ -2,11 +2,11 @@
 
 This project provides a set of three OpenFaaS functions that demonstrate three methods of OpenFaaS function I/O.
 
-- emitter: A function that is triggered via HTTP requests or as a cron job, and writes a RabbitMQ message each time it runs.
+- __emitter:__ A function that is triggered via HTTP requests or as a cron job, and writes a RabbitMQ message each time it runs.
 
-- batcher: A long-running microservice that continuously reads messages from a RabbitMQ queue, consolidates them into batches, and writes those batches to a new queue.
+- __batcher:__ A long-running microservice that continuously reads messages from a RabbitMQ queue, consolidates them into batches, and writes those batches to a new queue.
 
-- decoder: A function that is triggered by RabbitMQ messages (using the 3rd party RabbitMQ connector) and writes output to stderr.
+- __decoder:__ A function that is triggered by RabbitMQ messages (using the 3rd party RabbitMQ connector) and writes output to stderr.
 
 ### emitter
 
